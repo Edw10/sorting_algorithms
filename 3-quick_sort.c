@@ -52,7 +52,7 @@ size_t partition(int *array, size_t bot, size_t top, size_t size)
 
 	pivot = array[top];
 	i = bot;
-	for (j = bot; j <= top; j++)
+	for (j = bot; j < top; j++)
 	{
 		if (array[j] < pivot)
 		{
@@ -67,7 +67,7 @@ size_t partition(int *array, size_t bot, size_t top, size_t size)
 	aux = array[top];
 	array[top] = array[i];
 	array[i] = aux;
-	if(top != i)
+	if (top != i)
 		print_array(array, size);
 	return (i);
 }
