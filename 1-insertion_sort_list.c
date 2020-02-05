@@ -20,8 +20,8 @@ void insertion_sort_list(listint_t **list)
 			{
 				if ((*list)->next)
 				{
-						(*list)->next->prev = (*list)->prev;
-						(*list)->prev->next = (*list)->next;
+					(*list)->next->prev = (*list)->prev;
+					(*list)->prev->next = (*list)->next;
 				}
 				else
 				{
