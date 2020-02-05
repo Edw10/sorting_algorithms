@@ -54,7 +54,7 @@ size_t partition(int *array, size_t bot, size_t top, size_t size)
 	i = bot;
 	for (j = bot; j < top; j++)
 	{
-		if (array[j] < pivot)
+		if (array[j] <= pivot)
 		{
 			aux = array[j];
 			array[j] = array[i];
