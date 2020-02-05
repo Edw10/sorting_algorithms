@@ -12,10 +12,11 @@ void insertion_sort_list(listint_t **list)
 	listint_t *aux;
 
 
-	if ((*list) && (*list)->next)
+	if ((*list))
 	{
 		aux = *list;
-		(*list) = (*list)->next;
+		if((*list)->next)
+			(*list) = (*list)->next;
 	}
 	while ((*list))
 	{
