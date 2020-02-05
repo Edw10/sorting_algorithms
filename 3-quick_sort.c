@@ -28,11 +28,11 @@ void quicky(int *array, size_t bot, size_t top, size_t size)
 
 	if (bot < top)
 	{
-		piv = partition(array, bot, top);
-		print_array(array, size);
+		piv = partition(array, bot, top, size);
 		if (piv > 0)
 			quicky(array, bot, (piv - 1), size);
-		quicky(array, (piv + 1), top, size);
+		if (piv < top)
+			quicky(array, (piv + 1), top, size);
 	}
 }
 
@@ -41,10 +41,11 @@ void quicky(int *array, size_t bot, size_t top, size_t size)
  * @array: array to make partition
  * @bot: inferiror limit of the array
  * @top: superior limit of the array
+ * @size: size of the array
  * Return: the posistion of the piv
  */
 
-size_t partition(int *array, size_t bot, size_t top)
+size_t partition(int *array, size_t bot, size_t top, size_t size)
 {
 	int pivot, aux;
 	size_t i, j;
@@ -58,11 +59,15 @@ size_t partition(int *array, size_t bot, size_t top)
 			aux = array[j];
 			array[j] = array[i];
 			array[i] = aux;
+			if (i != j)
+				print_array(array, size);
 			i = i + 1;
 		}
 	}
 	aux = array[top];
 	array[top] = array[i];
 	array[i] = aux;
+	if(top != i)
+		print_array(array, size);
 	return (i);
 }
