@@ -9,14 +9,16 @@
 
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *aux = *list;
+	listint_t *aux;
 
-	if ((*list)->next)
+
+	if ((*list) && (*list)->next)
+	{
+		aux = *list;
 		(*list) = (*list)->next;
-
+	}
 	while ((*list))
 	{
-
 		while ((*list)->prev && ((*list)->n < (*list)->prev->n))
 		{
 			if ((*list)->next)
@@ -44,5 +46,6 @@ void insertion_sort_list(listint_t **list)
 		}
 		(*list) = (*list)->next;
 	}
-	*list = aux;
+	if (aux)
+		*list = aux;
 }
