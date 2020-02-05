@@ -13,22 +13,25 @@ void selection_sort(int *array, size_t size)
 	size_t i, j, p;
 	int aux;
 
-	for (i = 0; i < (size - 1); i++)
+	if (array)
 	{
-		aux = array[i];
-		for (j = (i + 1); j < size; j++)
+		for (i = 0; i < (size - 1); i++)
 		{
-			if (aux > array[j])
+			aux = array[i];
+			for (j = (i + 1); j < size; j++)
 			{
-				aux = array[j];
-				p = j;
+				if (aux > array[j])
+				{
+					aux = array[j];
+					p = j;
+				}
 			}
-		}
-		if (aux != array[i])
-		{
-			array[p] = array[i];
-			array[i] = aux;
-			print_array(array, size);
+			if (aux != array[i])
+			{
+				array[p] = array[i];
+				array[i] = aux;
+				print_array(array, size);
+			}
 		}
 	}
 }
